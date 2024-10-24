@@ -27,6 +27,7 @@ data = pd.DataFrame(np.random.rand(100), columns=['Random Numbers'])
 
 def preview_data(df):
     print(df.head())
+    print(df.describe())
 
 preview_data(data)
 ```

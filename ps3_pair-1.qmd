@@ -1,6 +1,5 @@
 ---
 title: "30538 Problem Set 3: git pair"
-author: "Hallie Lovin & Ben Schiffman"
 format: 
   pdf:
     keep-tex: true
@@ -21,12 +20,17 @@ include-before-body:
 ```{python}
 import pandas as pd
 import numpy as np
+import altair as alt
 
 np.random.seed(42)
 data = pd.DataFrame(np.random.rand(100), columns=['Random Numbers'])
 
 def preview_data(df):
     print(df.head())
+    return (alt.Chart(df).mark_bar().encode(
+      alt.X("Random Numbers:Q", bin = True),
+      alt.Y("count(Random Numbers):Q")
+    ))
 
 preview_data(data)
 ```
